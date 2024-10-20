@@ -4,9 +4,7 @@
 
 # Instructions
 
-## :exclamation:NB
-
-**First decide** on how you want to execute the Liquibase changesets (the so called SQL statements):
+## :exclamation:NB **First decide** on how you want to execute the Liquibase changesets (the so called SQL statements):
   - Upon **App Build Button**.
   - Or via **terminal command line**.
 
@@ -15,11 +13,9 @@
 ### :warning: NB! NEVER USE BOTH approaches simultaneously, because if you decide to use the command line, it **creates separate files**:
   - `LIQUIBASECHANGELOG`
   - `LIQUIBASECHANGELOGLOCK`
-
 but later if deice also to run liquibase commands upon building your project, e.g. pressing the **App Build Button**, it will create other files with the same names:
   - `LIQUIBASECHANGELOG`
   - `LIQUIBASECHANGELOGLOCK`
-
 , as a result you will have 4 files, containing tracking changelog information and both files will contain different data.
 
 ---
