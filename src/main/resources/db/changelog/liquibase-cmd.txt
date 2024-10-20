@@ -1,0 +1,28 @@
+
+                                    NB !!!
+
+                CHOOSE weather to execute liquibase changesets
+                            - upon App Build Button
+                            - or via terminal command line:
+
+If you run/build the project from inside the IntelliJ IDE, it uses the application.yml configuration
+and executes all changesets accordingly, then you need to define rollback contexts explicitly, etc.
+
+                # NB !!! NEVER USE BOTH approaches simultaneously!
+If you decide to use the command line, IT CREATES separate files: LIQUIBASECHANGELOG and LIQUIBASECHANGELOGLOCK
+Then if you use the App Build Button, it will create new other files: LIQUIBASECHANGELOG and LIQUIBASECHANGELOGLOCK
+
+
+
+       I chose the terminal cli approach, because it's easier to run single rollbacks.
+
+# To execute an install liquibase script - run the below command and use the 'update' flag:
+liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --url=jdbc:postgresql://localhost:5444/liquibase-test1 --username=postgres --password=myPassword update
+
+# To execute a rollback - run the below command and use the 'rollbackCount 1' flag::
+liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --url=jdbc:postgresql://localhost:5444/liquibase-test1 --username=postgres --password=myPassword rollbackCount 1
+
+# To clear the checksums:
+liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --url=jdbc:postgresql://localhost:5444/liquibase-test1 --username=postgres --password=myPassword clearCheckSums
+# and then create same 'command script file', but with new ID, because the previous ID is stored in the
+# 'databasechangelog' table and will not allow you to repeat same ID again.

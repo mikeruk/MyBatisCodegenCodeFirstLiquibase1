@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet for schema creation -->
+    <changeSet id="001_create_schema" author="author">
+        <sqlFile path="changelog-schemas/001_create_schema_install.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="changelog-schemas/001_create_schema_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ChangeSet for schema creation -->
+    <changeSet id="001_books_install" author="author">
+        <sqlFile path="changelog-tables/001_books_install.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="changelog-tables/001_books_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="002_insert_book_records_install" author="Me">
+        <sqlFile path="changelog-tables/002_insert_book_records_install.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="changelog-tables/002_insert_book_records_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>
+

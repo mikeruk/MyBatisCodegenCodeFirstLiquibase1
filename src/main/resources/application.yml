@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: "myBatisDemo1"
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5444/liquibase-test1"
+    username: "postgres"
+    password: "toortoor"
+    hikari:
+      connection-timeout: 12000
+  liquibase:
+#    database-change-log-table: "LIQUIBASECHANGELOG"
+#    database-change-log-lock-table: "LIQUIBASECHANGELOGLOCK"
+#    url: "jdbc:postgresql://localhost:5444/liquibase-test1"
+#    driver-class-name: "org.postgresql.Driver"
+#    user: "postgres"
+#    password: "toortoor"
+#    change-log: "classpath:db/changelog/changelog-root.xml"
+#    show-summary: summary
+#    show-summary-output: all
+#    ui-service: console
+    enabled: false # disable it! Otherwise, it will create duplicate LIQUIBASECHANGELOG and LIQUIBASECHANGELOGLOCK files, which are created via the command line tool
+
