@@ -4,7 +4,7 @@
 
 # Instructions
 
-## NB :exclamation:
+## :exclamation:NB
 
 **First decide** on how you want to execute the Liquibase changesets (the so called SQL statements):
   - Upon **App Build Button**.
