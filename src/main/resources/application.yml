@@ -4,8 +4,8 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     url: "jdbc:postgresql://localhost:5444/liquibase-test1"
-    username: "postgres"
-    password: "toortoor"
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     hikari:
       connection-timeout: 12000
   liquibase:
