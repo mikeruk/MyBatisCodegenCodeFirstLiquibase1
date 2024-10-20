@@ -1,29 +1,16 @@
 # MyBatisCodegenCodeFirstLiquibase1
 
-**Liquibase Demo** 
-
-## Overview
-
-To start using Liquibase with PostgreSQL in your Gradle project, here's a minimal configuration steps:
-
-## 1. Install the Liquibase tool
-
-You need to decide on how you will use the Liquibase tool:
-- use and run liquibase commands via a build tool like gradle or maven
-- or run liquibase commands via terminal command line
-Here is presented the second approach - run liquibase commands via terminal command line.
-For reference: [Creating Config Properties]([https://docs.liquibase.com/concepts/connections/creating-config-properties.html](https://docs.liquibase.com/start/install/home.html))
 
 
 # Instructions
 
-## :exclamation: NB !!!
+## NB :exclamation:
 
-**CHOOSE** whether to execute Liquibase changesets:
+**First decide** on how you want to execute the Liquibase changesets (the so called SQL statements):
   - Upon **App Build Button**.
   - Or via **terminal command line**.
 
-> **Note:** If you run/build the project from inside the IntelliJ IDE, it uses the `application.yml` configuration and executes all changesets accordingly. In this case, you need to define rollback contexts explicitly, etc.
+> **Note:** Why does this matter? Because if you decide to use the 'App Build Button' via your IDE, then you need to install all Liquibase dependencies via your pom.xml ot build.gradle file, apply settings in `application.yml` file, and explicitly configure "how and when" to run Rollbacks. But if you want to execute Liquibase changesets via **terminal command line**, then you can only install the Liquibase tool on your local machine.
 
 ### :warning: NB !!! NEVER USE BOTH approaches simultaneously!
 If you decide to use the command line, it **creates separate files**:
@@ -44,4 +31,34 @@ For reference: [Creating Config Properties](https://docs.liquibase.com/concepts/
 I created it in the main project root folder. This allows me to run only:
 ```bash
 liquibase update
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Liquibase Demo** 
+
+## Overview
+
+To start using Liquibase with PostgreSQL in your Gradle project, here's a minimal configuration steps:
+
+## 1. Install the Liquibase tool
+
+You need to decide on how you will use the Liquibase tool:
+- use and run liquibase commands via a build tool like gradle or maven
+- or run liquibase commands via terminal command line
+Here is presented the second approach - run liquibase commands via terminal command line.
+For reference: [Creating Config Properties]([https://docs.liquibase.com/concepts/connections/creating-config-properties.html](https://docs.liquibase.com/start/install/home.html))
+
+
+
 
