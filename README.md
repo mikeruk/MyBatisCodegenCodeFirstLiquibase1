@@ -40,7 +40,44 @@ If the file is created on another place or inside another folder, then the flag 
 liquibase --defaultsFile=path/to/liquibase.properties update
 ```
 
-
+### Running Liquibase Commands
+IF you don't create any liquibase.properties file, you have to pass the arguments manually on the command line,
+like so: (Arguments passed on the command line will overwrite any properties in the liquibase.properties.)
+# To execute an 'install liquibase script' - run the below command and use the 'update' flag:
+```bash
+    liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --url=jdbc:postgresql://localhost:5444/liquibase-test1 --username=postgres --password=myPassword update
+```
+# To execute a rollback only for the last applied changeset - run the below command and use the 'rollbackCount 1' flag:
+```bash
+liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --url=jdbc:postgresql://localhost:5444/liquibase-test1 --username=postgres --password=myPassword rollbackCount 1
+```
+# Rollback to the initial state (before any changesets were applied):
+If you haven't used tags, you can roll back to the initial state by specifying the oldest date (before any changesets were applied):
+```bash
+liquibase rollbackToDate YYYY-MM-DDTHH:MM:SS
+```
+# Rollback to a specific tag - This will roll back all changesets applied after the tag.:
+```bash
+liquibase rollback myTag
+```
+# Use rollbackCount with a High Number:
+```bash
+liquibase rollbackCount <total_number_of_changesets>
+```
+# Use rollback to an Empty Database:
+```bash
+liquibase rollbackCount <total_number_of_changesets_applied>
+```
+# you can query the DATABASECHANGELOG table, like this:
+```bash
+SELECT COUNT(*) FROM DATABASECHANGELOG;
+```
+# To clear the checksums:
+```bash
+liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --url=jdbc:postgresql://localhost:5444/liquibase-test1 --username=postgres --password=myPassword clearCheckSums
+```
+# and then create same 'command script file', but with new ID, because the previous ID is stored in the
+# 'databasechangelog' table and will not allow you to repeat same ID again.
 
 
 
