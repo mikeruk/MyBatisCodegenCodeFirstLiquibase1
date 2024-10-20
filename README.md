@@ -17,7 +17,7 @@
 but later if deice also to run liquibase commands upon building your project, e.g. pressing the **App Build Button**, it will create other files with the same names:
   - `LIQUIBASECHANGELOG`
   - `LIQUIBASECHANGELOGLOCK`
-  - 
+
 , as a result you will have 4 files, containing tracking changelog information and both files will contain different data.
 
 ---
