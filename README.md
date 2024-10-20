@@ -83,7 +83,7 @@ For reference: [Creating Config Properties](https://docs.liquibase.com/concepts/
 ## Running Liquibase Commands
 IF you don't create any liquibase.properties file, you have to pass the arguments manually on the command line,
 like so: (Arguments passed on the command line will overwrite any properties in the liquibase.properties.)
-### To execute an 'install liquibase script' - run the below command and use the 'update' flag:
+### To execute a 'liquibase script' to install/persist something in the database - run the below command and use the 'update' flag:
 ```bash
     liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --url=jdbc:postgresql://localhost:5444/liquibase-test1 --username=postgres --password=myPassword update
 ```
