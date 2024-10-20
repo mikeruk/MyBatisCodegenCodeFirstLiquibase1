@@ -40,7 +40,7 @@ If the file is created on another place or inside another folder, then the flag 
 liquibase --defaultsFile=path/to/liquibase.properties update
 ```
 
-### Running Liquibase Commands
+## Running Liquibase Commands
 IF you don't create any liquibase.properties file, you have to pass the arguments manually on the command line,
 like so: (Arguments passed on the command line will overwrite any properties in the liquibase.properties.)
 ### To execute an 'install liquibase script' - run the below command and use the 'update' flag:
