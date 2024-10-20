@@ -35,10 +35,10 @@ I created the `liquibase.properties` file in the main project root folder. This 
 ```bash
 liquibase update
 ```
-
-If the file is created on another place or inside another folder, then the flag `--defaultsFil` needs to be included when running the command:
-    liquibase --defaultsFile=path/to/liquibase.properties update
-
+If the file is created on another place or inside another folder, then the flag `--defaultsFile` needs to be included when running the command:
+```bash
+liquibase --defaultsFile=path/to/liquibase.properties update
+```
 
 
 
