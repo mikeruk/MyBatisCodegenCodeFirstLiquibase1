@@ -13,8 +13,8 @@ spring:
 #    database-change-log-lock-table: "LIQUIBASECHANGELOGLOCK"
 #    url: "jdbc:postgresql://localhost:5444/liquibase-test1"
 #    driver-class-name: "org.postgresql.Driver"
-#    user: "postgres"
-#    password: "toortoor"
+#    user: ${DB_USERNAME}
+#    password: ${DB_PASSWORD}
 #    change-log: "classpath:db/changelog/changelog-root.xml"
 #    show-summary: summary
 #    show-summary-output: all
