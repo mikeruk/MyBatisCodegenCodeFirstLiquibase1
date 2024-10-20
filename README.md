@@ -24,10 +24,14 @@ but later if deice also to run liquibase commands upon building your project, e.
 
 ### :white_check_mark: Here we choose to implement the **terminal CLI** approach, because we want to keep such process like updating our database separate from the regular build process, when we run our app. Also it's simpler to configure and run rollbacks, when we want to revert changes.
 
-**First**, define the `liquibase.properties` file. 
+**First**, install the Liquibase tool on your machine.
+For reference: [Creating Config Properties](https://docs.liquibase.com/start/install/home.html)
+
+
+**Second**,  define the `liquibase.properties` file. 
 For reference: [Creating Config Properties](https://docs.liquibase.com/concepts/connections/creating-config-properties.html)
 
-I created it in the main project root folder. This allows me to run only:
+I created it in the main project root folder. This allows me to run only this command and it will locate that file automatically:
 ```bash
 liquibase update
 
