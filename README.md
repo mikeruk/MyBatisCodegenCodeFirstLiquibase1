@@ -40,6 +40,46 @@ If the file is created on another place or inside another folder, then the flag 
 liquibase --defaultsFile=path/to/liquibase.properties update
 ```
 
+**Third**, manually create the `changelog-root.xml` file. You can choose any other name you like, but the content is important. 
+The following changelog will first execute the `id="001_create_schema"` - to create the SQL Schema. 
+Next will execute the `id="001_books_install"` to create the table 'books'.
+And so on... you can add any more SQL statements to be executed.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet for schema creation -->
+    <changeSet id="001_create_schema" author="author">
+        <sqlFile path="changelog-schemas/001_create_schema_install.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="changelog-schemas/001_create_schema_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ChangeSet for schema creation -->
+    <changeSet id="001_books_install" author="author">
+        <sqlFile path="changelog-tables/001_books_install.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="changelog-tables/001_books_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ChangeSet for inserting new records in the 'books' sql table -->
+    <changeSet id="002_insert_book_records_install" author="Me">
+        <sqlFile path="changelog-tables/002_insert_book_records_install.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="changelog-tables/002_insert_book_records_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+```
+For reference: [Creating Config Properties](https://docs.liquibase.com/concepts/changelogs/home.html)
+> **Note:** As described in the link above, the changelog can have different formats and folder structure. You can write all your SQL statements inside the `changelog-root.xml` file, or you can write those SQL statements in separate files (.sql, .json, etc...) and simply reference their path location inside the `changelog-root.xml`. This is the preferred way in this Demo project here.
+
 ## Running Liquibase Commands
 IF you don't create any liquibase.properties file, you have to pass the arguments manually on the command line,
 like so: (Arguments passed on the command line will overwrite any properties in the liquibase.properties.)
@@ -82,6 +122,5 @@ liquibase --changeLogFile=src/main/resources/db/changelog/changelog-root.xml --u
 
 
 
-For reference: [Creating Config Properties](https://docs.liquibase.com/concepts/changelogs/home.html)
 
 
