@@ -22,6 +22,7 @@
         </rollback>
     </changeSet>
 
+    <!-- ChangeSet for inserting new records in the 'books' sql table -->
     <changeSet id="002_insert_book_records_install" author="Me">
         <sqlFile path="changelog-tables/002_insert_book_records_install.sql" relativeToChangelogFile="true"/>
         <rollback>
