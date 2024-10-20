@@ -25,7 +25,7 @@ but later if deice also to run liquibase commands upon building your project, e.
 ### :white_check_mark: Here we choose to implement the **terminal CLI** approach, because we want to keep such process like updating our database separate from the regular build process, when we run our app. Also it's simpler to configure and run rollbacks, when we want to revert changes.
 
 **First**, install the Liquibase tool on your machine.
-For reference: [Creating Config Properties](https://docs.liquibase.com/start/install/home.html)
+For reference: [Install Liquibase](https://docs.liquibase.com/start/install/home.html)
 
 
 **Second**,  define the `liquibase.properties` file. 
@@ -77,7 +77,7 @@ And so on... you can add any more SQL statements to be executed.
     </changeSet>
 </databaseChangeLog>
 ```
-For reference: [Creating Config Properties](https://docs.liquibase.com/concepts/changelogs/home.html)
+For reference: [Creating changelog file](https://docs.liquibase.com/concepts/changelogs/home.html)
 > **Note:** As described in the link above, the changelog can have different formats and folder structure. You can write all your SQL statements inside the `changelog-root.xml` file, or you can write those SQL statements in separate files (.sql, .json, etc...) and simply reference their path location inside the `changelog-root.xml`. This is the preferred way in this Demo project here.
 
 ## Running Liquibase Commands
